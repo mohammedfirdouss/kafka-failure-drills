@@ -1,0 +1,132 @@
+>>> Stopping the consumer
+deployment.apps/consumer scaled
+== 10:01:23 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 2  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=0
+  p1 lag=14
+  p2 lag=0
+  total lag=14
+== producer: 500 records sent, 50.0 records/sec (0.01 MB/sec), 7.0 ms avg latency, 24.0 ms max latency.
+
+== 10:01:41 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 2  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=122
+  p1 lag=52
+  p2 lag=0
+  total lag=174
+== producer: 501 records sent, 50.1 records/sec (0.01 MB/sec), 6.7 ms avg latency, 11.0 ms max latency.
+
+== 10:01:59 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=370
+  p1 lag=62
+  p2 lag=148
+  total lag=580
+== producer: 500 records sent, 50.0 records/sec (0.01 MB/sec), 6.6 ms avg latency, 27.0 ms max latency.
+
+== 10:02:17 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=969
+  p1 lag=372
+  p2 lag=152
+  total lag=1493
+== producer: 501 records sent, 50.0 records/sec (0.01 MB/sec), 6.9 ms avg latency, 11.0 ms max latency.
+
+>>> Starting the consumer again
+deployment.apps/consumer scaled
+== 10:02:36 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=1235
+  p1 lag=681
+  p2 lag=487
+  total lag=2403
+== producer: 500 records sent, 50.0 records/sec (0.01 MB/sec), 6.6 ms avg latency, 18.0 ms max latency.
+
+== 10:02:54 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=25
+  p1 lag=66
+  p2 lag=0
+  total lag=91
+== producer: 501 records sent, 50.0 records/sec (0.01 MB/sec), 6.5 ms avg latency, 12.0 ms max latency.
+
+== 10:03:12 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=63
+  p1 lag=0
+  p2 lag=184
+  total lag=247
+== producer: 501 records sent, 50.0 records/sec (0.01 MB/sec), 6.6 ms avg latency, 10.0 ms max latency.
+
+== 10:03:30 broker pods
+drills-broker-0   Running   true
+drills-broker-1   Running   true
+drills-broker-2   Running   true
+== partitions (leader / replicas / in-sync replicas)
+  Partition: 0  Leader: 1  Replicas: 1,2,0  Isr: 0,1,2
+  Partition: 1  Leader: 2  Replicas: 2,0,1  Isr: 0,1,2
+  Partition: 2  Leader: 0  Replicas: 0,1,2  Isr: 0,1,2
+== under-replicated partitions: 0
+== consumer lag (group orders-app)
+  p0 lag=28
+  p1 lag=61
+  p2 lag=63
+  total lag=152
+== producer: 501 records sent, 50.0 records/sec (0.01 MB/sec), 6.6 ms avg latency, 9.0 ms max latency.
+
