@@ -5,6 +5,33 @@ actually happened and a runbook for each.
 
 Runs locally on kind with the [Strimzi](https://strimzi.io) operator (Strimzi 1.3.1, Kafka 4.3.2, KRaft).
 
+## Architecture
+
+```mermaid
+flowchart LR
+    subgraph kind["kind cluster, namespace kafka"]
+        op["Strimzi operator"]
+        subgraph kc["Kafka cluster (KRaft)"]
+            ctl["controller x1"]
+            b0["broker 0"]
+            b1["broker 1"]
+            b2["broker 2"]
+        end
+        prod["producer<br/>50 msg/s, acks=all"]
+        cons["consumer<br/>group orders-app"]
+        tb["toolbox<br/>(Kafka CLI)"]
+    end
+    drills["drills/*/break.sh<br/>scripts/status.sh"]
+
+    op -- "creates and restarts pods" --> kc
+    prod -- "topic orders<br/>3 partitions, RF 3, min ISR 2" --> kc
+    kc --> cons
+    tb -. "describe topic, lag" .-> kc
+    drills -- "kubectl: kill brokers,<br/>scale consumer or operator" --> kind
+```
+
+The controller runs in its own pool, so killing brokers never breaks the metadata quorum. Drill 3 scales the Strimzi operator to 0 first, so killed brokers stay down.
+
 ## Setup
 
 | Part | Detail |
